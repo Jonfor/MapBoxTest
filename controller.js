@@ -10,7 +10,9 @@ testController.controller('testCtrl', ['$scope', 'mapboxService', '$timeout', fu
     $timeout(function() {
         $scope.timedOut = true;
         var map = mapboxService.getMapInstances()[0];
+        var bounds = map.getBounds();
         map.invalidateSize();
+        map.fitBounds(bounds);
         console.log("Timeout");
-    }, 3000);
+    }, 2000);
 }]);
